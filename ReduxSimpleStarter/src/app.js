@@ -3,6 +3,7 @@
 
 
 import React, { Component } from 'react'
+import Search from './components/search'
 
 
 
@@ -10,7 +11,9 @@ class App extends Component {
 	
 	render( ) {
 		return (
-			<div> React! </div>
+			<div>
+				<Search/>
+			</div>
 		)
 	}
 	
@@ -18,6 +21,5 @@ class App extends Component {
 
 
 export default App
-
 
 
