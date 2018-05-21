@@ -14,10 +14,15 @@ class Search extends Component {
 	}
 	
 	
+	onInputChange( event ) {
+		this.setState( { term: event.target.value } )
+	}
+	
 	render( ) {
 		return (
 			<div>
-				<input onChange={ event => this.setState( { term: event.target.value } ) }/>
+				<input value={ this.state.term } onChange={ event => this.onInputChange( event ) }/>
+				<br/>
 				Value of the input: { this.state.term }
 			</div>
 		)
@@ -27,5 +32,6 @@ class Search extends Component {
 
 
 export default Search
+
 
 
