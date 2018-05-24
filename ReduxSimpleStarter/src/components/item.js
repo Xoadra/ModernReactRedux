@@ -6,11 +6,11 @@ import React from 'react'
 
 
 
-const Item = ( { video } ) => {
+const Item = ( { video, onVideoSelect } ) => {
 	const url = video.snippet.thumbnails.default.url
 	console.log( video )
 	return (
-		<li className="list-group-item">
+		<li className="list-group-item" onClick={ ( ) => onVideoSelect( video ) }>
 			<div className="video-list media">
 				<div className="media-left">
 					<img className="media-object" src={ url }/>
