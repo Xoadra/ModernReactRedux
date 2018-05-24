@@ -4,6 +4,7 @@
 
 import React, { Component } from 'react'
 import Search from './components/search'
+import List from './components/list'
 import youtube from 'youtube-api-search'
 
 
@@ -27,6 +28,7 @@ class App extends Component {
 		return (
 			<div>
 				<Search/>
+				<List videos={ this.state.videos }/>
 			</div>
 		)
 	}
