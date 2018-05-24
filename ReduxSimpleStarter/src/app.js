@@ -7,6 +7,7 @@ import Search from './components/search'
 import List from './components/list'
 import Detail from './components/detail'
 import youtube from 'youtube-api-search'
+import _ from 'lodash'
 import '../public/style.css'
 
 
@@ -22,7 +23,12 @@ class App extends Component {
 			videos: [ ],
 			selected: null
 		}
-		youtube( { key: key, term: 'lizards' }, videos => {
+		this.videoSearch( 'lizards' )
+	}
+	
+	
+	videoSearch( term ) {
+		youtube( { key: key, term: term }, videos => {
 			// ES6 shortcut to assign keys and values with same variable name
 			this.setState( {
 				videos: videos,
@@ -31,11 +37,11 @@ class App extends Component {
 		} )
 	}
 	
-	
 	render( ) {
+		const videoSearch = _.debounce( term => { this.videoSearch( term ) }, 300 )
 		return (
 			<div>
-				<Search/>
+				<Search onSearchTermChange={ videoSearch }/>
 				<Detail video={ this.state.selected }/>
 				<List videos={ this.state.videos } onVideoSelect={ selected => this.setState( { selected } ) }/>
 			</div>

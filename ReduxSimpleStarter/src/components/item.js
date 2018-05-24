@@ -8,7 +8,6 @@ import React from 'react'
 
 const Item = ( { video, onVideoSelect } ) => {
 	const url = video.snippet.thumbnails.default.url
-	console.log( video )
 	return (
 		<li className="list-group-item" onClick={ ( ) => onVideoSelect( video ) }>
 			<div className="video-list media">
@@ -25,5 +24,6 @@ const Item = ( { video, onVideoSelect } ) => {
 
 
 export default Item
+
 
 
