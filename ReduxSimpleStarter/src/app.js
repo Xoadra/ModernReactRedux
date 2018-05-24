@@ -7,6 +7,7 @@ import Search from './components/search'
 import List from './components/list'
 import Detail from './components/detail'
 import youtube from 'youtube-api-search'
+import '../public/style.css'
 
 
 
@@ -45,5 +46,6 @@ class App extends Component {
 
 
 export default App
+
 
 
