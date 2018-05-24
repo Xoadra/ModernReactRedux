@@ -3,13 +3,17 @@
 
 
 import React from 'react'
+import Item from './item'
 
 
 
 const List = ( props ) => {
+	const items = props.videos.map( video => {
+		return <Item key={ video.etag } video={ video }/>
+	} )
 	return (
 		<ul className="col-md-4 list-group">
-			{ props.videos.length }
+			{ items }
 		</ul>
 	)
 }
