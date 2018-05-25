@@ -3,7 +3,7 @@
 
 
 {
-	"name": "redux-simple-starter",
+	"name": "react-starter-app",
 	"version": "0.1.0",
 	"scripts": {
 		"start": "webpack-dev-server --mode development --hot",
