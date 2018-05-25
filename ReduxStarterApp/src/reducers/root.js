@@ -5,11 +5,13 @@
 import { combineReducers } from 'redux'
 
 import booksReducer from './books'
+import activeReducer from './active'
 
 
 
 const rootReducer = combineReducers( {
-	books: booksReducer
+	books: booksReducer,
+	active: activeReducer
 } )
 
 
