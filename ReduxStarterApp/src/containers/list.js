@@ -4,6 +4,9 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
+import { selectBook } from '../actions/index'
 
 
 
@@ -12,7 +15,9 @@ class List extends Component {
 	fillList( ) {
 		return this.props.books.map( book => {
 			return (
-				<li key={ book.title } className="list-group-item">{ book.title }</li>
+				<li key={ book.title } className="list-group-item" onClick={ ( ) => this.props.selectBook( book ) } >
+					{ book.title }
+				</li>
 			)
 		} )
 	}
@@ -29,11 +34,18 @@ class List extends Component {
 
 
 function mapStateToProps( state ) {
-	// Will show up as props inside of List container component
+	// This will be assigned as props inside of the List container component
 	return { books: state.books }
 }
 
+// Anything returned by this function becomes the props of List container
+function mapDispatchToProps( dispatch ) {
+	// When selectBook is called, it should be passed to all of the reducers
+	return bindActionCreators( { selectBook: selectBook }, dispatch )
+}
 
-export default connect( mapStateToProps )( List )
+
+// Make List a container and set the selectBook action creator as its prop
+export default connect( mapStateToProps, mapDispatchToProps )( List )
 
 
