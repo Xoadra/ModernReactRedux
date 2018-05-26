@@ -4,6 +4,8 @@
 
 import React, { Component } from 'react'
 
+import Search from './containers/search'
+
 
 
 class App extends Component {
@@ -11,7 +13,7 @@ class App extends Component {
 	render( ) {
 		return (
 			<div>
-				React Redux App
+				<Search/>
 			</div>
 		)
 	}
