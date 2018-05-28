@@ -4,10 +4,12 @@
 
 import { combineReducers } from 'redux'
 
+import postsReducer from './posts'
+
 
 
 const rootReducer = combineReducers( {
-	state: ( state = {  } ) => state
+	posts: postsReducer
 } )
 
 
