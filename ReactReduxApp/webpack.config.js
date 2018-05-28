@@ -9,6 +9,7 @@ const HtmlWebpackPlugin = require( 'html-webpack-plugin' )
 module.exports = {
 	module: {
 		rules: [
+			{ test: /\.css$/, use: [ 'style-loader', 'css-loader' ] },
 			{ test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' }
 		]
 	},
@@ -38,6 +39,5 @@ module.exports = {
 		path: __dirname + '/build'
 	}
 }
-
 
 
