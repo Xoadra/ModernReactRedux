@@ -9,6 +9,10 @@ import { Field, reduxForm } from 'redux-form'
 
 class New extends Component {
 	
+	onSubmit( values ) {
+		console.log( values )
+	}
+	
 	renderField( field ) {
 		return (
 			// Dots assign event handlers to input through field argument
@@ -21,11 +25,13 @@ class New extends Component {
 	}
 	
 	render( ) {
+		const { handleSubmit } = this.props
 		return (
-			<form>
+			<form onSubmit={ handleSubmit( this.onSubmit.bind( this ) ) }>
 				<Field label="Title" name="title" component={ this.renderField }/>
 				<Field label="Categories" name="categories" component={ this.renderField }/>
 				<Field label="Content" name="content" component={ this.renderField }/>
+				<button className="btn btn-primary" type="submit"> Submit </button>
 			</form>
 		)
 	}
