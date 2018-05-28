@@ -4,12 +4,20 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 
-import App from './app'
+import Home from './elements/home'
+import '../public/style.css'
 
 
 
-ReactDOM.render( <App/>, document.getElementById( 'root' ) )
-
+ReactDOM.render(
+	<BrowserRouter>
+		<div>
+			<Route path="/" component={ Home }/>
+		</div>
+	</BrowserRouter>,
+	document.getElementById( 'root' )
+)
 
 

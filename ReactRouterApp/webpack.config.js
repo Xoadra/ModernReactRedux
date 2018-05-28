@@ -21,6 +21,7 @@ module.exports = {
 	],
 	devServer: {
 		contentBase: 'build',
+		historyApiFallback: true,
 		open: false,
 		port: 3000,
 		stats: {
@@ -36,7 +37,8 @@ module.exports = {
 	},
 	output: {
 		filename: 'bundle.js',
-		path: __dirname + '/build'
+		path: __dirname + '/build',
+		publicPath: '/'
 	}
 }
 
