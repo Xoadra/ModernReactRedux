@@ -10,6 +10,7 @@ const apiKey = '?key=0xo0xo0xoadra0xo0xo0'
 const rootUrl = 'http://reduxblog.herokuapp.com/api'
 
 export const postsFetch = 'fetch-posts'
+export const postCreate = 'create-post'
 
 
 export function fetchPosts( ) {
@@ -19,5 +20,14 @@ export function fetchPosts( ) {
 		payload: posts
 	}
 }
+
+export function createPost( values ) {
+	const post = axios.post( `${ rootUrl }/posts${ apiKey }`, values )
+	return {
+		type: postCreate,
+		payload: post
+	}
+}
+
 
 

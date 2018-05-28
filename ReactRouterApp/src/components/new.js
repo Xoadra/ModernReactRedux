@@ -5,13 +5,16 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Field, reduxForm } from 'redux-form'
+import { connect } from 'react-redux'
+
+import { createPost } from '../actions/api'
 
 
 
 class New extends Component {
 	
 	onSubmit( values ) {
-		console.log( values )
+		this.props.createPost( values )
 	}
 	
 	renderField( field ) {
@@ -63,7 +66,6 @@ function validate( values ) {
 
 
 // Form property should be unique to differentiate it from other forms
-export default reduxForm( { form: 'PostsNewForm', validate } )( New )
-
+export default reduxForm( { form: 'NewForm', validate } )( connect( null, { createPost } )( New ) )
 
 

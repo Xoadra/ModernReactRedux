@@ -4,7 +4,7 @@
 
 import _ from 'lodash'
 
-import { postsFetch } from '../actions/fetch'
+import { postsFetch } from '../actions/api'
 
 
 

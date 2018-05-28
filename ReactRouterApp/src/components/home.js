@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import _ from 'lodash'
 
-import { fetchPosts } from '../actions/fetch'
+import { fetchPosts } from '../actions/api'
 
 
 
@@ -29,7 +29,6 @@ class Home extends Component {
 	}
 	
 	render( ) {
-		console.log( this.props.post )
 		return (
 			<div>
 				<div className="text-xs-right">
@@ -55,5 +54,6 @@ function mapStateToProps( state ) {
 
 // Shortcut using ES6 when returning is all that mapDispatchToProps does
 export default connect( mapStateToProps, { fetchPosts } )( Home )
+
 
 
