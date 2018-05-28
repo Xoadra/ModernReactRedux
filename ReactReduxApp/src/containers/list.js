@@ -7,6 +7,8 @@ import { connect } from 'react-redux'
 import _ from 'lodash'
 
 import Chart from '../elements/chart'
+import Place from '../elements/place'
+
 
 
 class List extends Component {
@@ -20,9 +22,11 @@ class List extends Component {
 		)
 		const pressures = data.list.map( weather => weather.main.pressure )
 		const humidities = data.list.map( weather => weather.main.humidity )
+		// Define new values from source properties via ES6
+		const { lat, lon } = data.city.coord
 		return (
 			<tr key={ name }>
-				<td>{ name }</td>
+				<td><Place lat={ lat } lon={ lon }/></td>
 				<td><Chart data={ temps } color="red" units="&deg;F"/></td>
 				<td><Chart data={ pressures } color="lightgreen" units="hPa"/></td>
 				<td><Chart data={ humidities } color="blue" units="%"/></td>
