@@ -21,8 +21,10 @@ export function fetchPosts( ) {
 	}
 }
 
-export function createPost( values ) {
+export function createPost( values, callback ) {
 	const post = axios.post( `${ rootUrl }/posts${ apiKey }`, values )
+		// Wait until http request is complete, then execute callback
+		.then( ( ) => callback( ) )
 	return {
 		type: postCreate,
 		payload: post

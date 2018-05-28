@@ -14,7 +14,10 @@ import { createPost } from '../actions/api'
 class New extends Component {
 	
 	onSubmit( values ) {
-		this.props.createPost( values )
+		this.props.createPost( values, ( ) => {
+			// Navigate back to home route if successful post submission
+			this.props.history.push( '/' )
+		} )
 	}
 	
 	renderField( field ) {
@@ -67,5 +70,6 @@ function validate( values ) {
 
 // Form property should be unique to differentiate it from other forms
 export default reduxForm( { form: 'NewForm', validate } )( connect( null, { createPost } )( New ) )
+
 
 
