@@ -3,7 +3,7 @@
 
 
 import React, { Component } from 'react'
-import { Sparklines, SparklinesLine } from 'react-sparklines'
+import Chart from '../elements/chart'
 import { connect } from 'react-redux'
 
 
@@ -17,9 +17,7 @@ class List extends Component {
 			<tr key={ name }>
 				<td>{ name }</td>
 				<td>
-					<Sparklines height={ 60 } width={ 180 } data={ temps }>
-						<SparklinesLine color="blue"/>
-					</Sparklines>
+					<Chart data={ temps } color="red"/>
 				</td>
 			</tr>
 		)
