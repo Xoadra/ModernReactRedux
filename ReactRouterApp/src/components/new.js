@@ -14,12 +14,14 @@ class New extends Component {
 	}
 	
 	renderField( field ) {
+		const { meta: { touched, error } } = field
+		const className = `form-group ${ touched && error ? 'has-danger' : '' }`
 		return (
 			// Dots assign event handlers to input through field argument
-			<div className="form-group">
+			<div className={ className }>
 				<label>{ field.label }</label>
 				<input className="form-control" type="text" { ...field.input }/>
-				{ field.meta.error }
+				<div className="text-help">{ touched ? error : '' }</div>
 			</div>
 		)
 	}
