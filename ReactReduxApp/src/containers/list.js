@@ -3,22 +3,27 @@
 
 
 import React, { Component } from 'react'
-import Chart from '../elements/chart'
 import { connect } from 'react-redux'
+import _ from 'lodash'
 
+import Chart from '../elements/chart'
 
 
 class List extends Component {
 	
 	renderWeather( data ) {
 		const name = data.city.name
-		const temps = data.list.map( weather => weather.main.temp )
+		const temps = _.map(
+			data.list.map( weather => weather.main.temp ),
+			// Converting from degrees in Kelvin to Fahrenheit
+			temp => ( ( temp * ( 9 / 5 ) ) - 459.67 )
+		)
 		const pressures = data.list.map( weather => weather.main.pressure )
 		const humidities = data.list.map( weather => weather.main.humidity )
 		return (
 			<tr key={ name }>
 				<td>{ name }</td>
-				<td><Chart data={ temps } color="red" units="K"/></td>
+				<td><Chart data={ temps } color="red" units="&deg;F"/></td>
 				<td><Chart data={ pressures } color="lightgreen" units="hPa"/></td>
 				<td><Chart data={ humidities } color="blue" units="%"/></td>
 			</tr>
@@ -31,7 +36,7 @@ class List extends Component {
 				<thead>
 					<tr>
 						<th> City </th>
-						<th> Temperature (K) </th>
+						<th> Temperature (&deg;F) </th>
 						<th> Pressure (hPa) </th>
 						<th> Humidity (%) </th>
 					</tr>
@@ -46,12 +51,13 @@ class List extends Component {
 }
 
 
-// ES6 shortcut for grabbing state's weather property
+// An ES6 shortcut for grabbing state's weather property
 function mapStateToProps( { weather } ) {
 	return { weather }
 }
 
 
 export default connect( mapStateToProps )( List )
+
 
 
