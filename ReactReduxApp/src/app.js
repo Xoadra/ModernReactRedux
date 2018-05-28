@@ -5,6 +5,7 @@
 import React, { Component } from 'react'
 
 import Search from './containers/search'
+import List from './containers/list'
 
 
 
@@ -14,6 +15,7 @@ class App extends Component {
 		return (
 			<div>
 				<Search/>
+				<List/>
 			</div>
 		)
 	}

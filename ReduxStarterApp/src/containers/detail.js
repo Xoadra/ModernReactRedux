@@ -26,9 +26,7 @@ class Detail extends Component {
 
 
 function mapStateToProps( state ) {
-	return {
-		book: state.active
-	}
+	return { book: state.active }
 }
 
 
