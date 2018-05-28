@@ -15,11 +15,11 @@ export const weatherFetch = 'fetch-weather'
 export function fetchWeather( city ) {
 	const url = `${ rootUrl }&q=${ city },us`
 	const data = axios.get( url )
+	console.log( 'Action fired with payload data:', data )
 	return {
 		type: weatherFetch,
 		payload: data
 	}
 }
-
 
 

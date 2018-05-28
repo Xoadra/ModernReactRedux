@@ -4,10 +4,12 @@
 
 import { combineReducers } from 'redux'
 
+import weatherReducer from './weather'
+
 
 
 const rootReducer = combineReducers( {
-	state: ( state = {  } ) => state
+	weather: weatherReducer
 } )
 
 
