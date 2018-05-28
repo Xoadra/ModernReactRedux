@@ -3,6 +3,7 @@
 
 
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { Field, reduxForm } from 'redux-form'
 
 
@@ -34,6 +35,7 @@ class New extends Component {
 				<Field label="Categories" name="categories" component={ this.renderField }/>
 				<Field label="Content" name="content" component={ this.renderField }/>
 				<button className="btn btn-primary" type="submit"> Submit </button>
+				<Link className="btn btn-danger" to="/"> Cancel </Link>
 			</form>
 		)
 	}
