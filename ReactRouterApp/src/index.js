@@ -11,6 +11,7 @@ import promise from 'redux-promise'
 
 import Home from './components/home'
 import New from './components/new'
+import Show from './components/show'
 import reducers from './reducers/root'
 import '../public/style.css'
 
@@ -25,6 +26,7 @@ ReactDOM.render(
 			<div>
 				<Switch>
 					<Route path="/posts/new" component={ New }/>
+					<Route path="/posts/:id" component={ Show }/>
 					<Route path="/" component={ Home }/>
 				</Switch>
 			</div>
