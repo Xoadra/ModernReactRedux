@@ -11,6 +11,7 @@ const rootUrl = 'http://reduxblog.herokuapp.com/api'
 
 export const postsFetch = 'fetch-posts'
 export const postCreate = 'create-post'
+export const postGrab = 'grab-post'
 
 
 export function fetchPosts( ) {
@@ -31,5 +32,12 @@ export function createPost( values, callback ) {
 	}
 }
 
+export function grabPost( id ) {
+	const post = axios.get( `${ rootUrl }/posts/${ id }${ apiKey }` )
+	return {
+		type: postGrab,
+		payload: post
+	}
+}
 
 
