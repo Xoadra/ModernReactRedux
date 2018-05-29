@@ -4,7 +4,7 @@
 
 import _ from 'lodash'
 
-import { postsFetch, postGrab } from '../actions/api'
+import { postsFetch, postGrab, postDelete } from '../actions/api'
 
 
 
@@ -21,9 +21,13 @@ export default function( state = {  }, action ) {
 			// ES6 option to set the object's key using key interpolation
 			// Bracketed value is set as this object's payload data key
 			return { ...state, [ action.payload.data.id ]: action.payload.data }
+		case postDelete:
+			// Drops object in posts with key matching action.payload
+			return _.omit( state, action.payload )
 		default:
 			return state
 	}
 }
+
 
 

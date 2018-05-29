@@ -12,6 +12,7 @@ const rootUrl = 'http://reduxblog.herokuapp.com/api'
 export const postsFetch = 'fetch-posts'
 export const postCreate = 'create-post'
 export const postGrab = 'grab-post'
+export const postDelete = 'delete-post'
 
 
 export function fetchPosts( ) {
@@ -37,6 +38,15 @@ export function grabPost( id ) {
 	return {
 		type: postGrab,
 		payload: post
+	}
+}
+
+export function deletePost( id, callback ) {
+	const post = axios.delete( `${ rootUrl }/posts/${ id }${ apiKey }` )
+		.then( ( ) => callback( ) )
+	return {
+		type: postDelete,
+		payload: id
 	}
 }
 
